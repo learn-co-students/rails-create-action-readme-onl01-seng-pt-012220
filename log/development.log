@@ -40,3 +40,51 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title Goes Here"], ["description", "Desc goes here..."], ["created_at", "2020-05-28 18:44:03.151652"], ["updated_at", "2020-05-28 18:44:03.151652"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/posts/new" for 127.0.0.1 at 2020-05-28 11:48:11 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 1114ms (Views: 1061.2ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-05-28 11:48:30 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"INz6FUojdoHsIeZsMNM74Zg7k1/88xJ4GDeXKLwtvsoGon96EBquUN/xEKg1pk6SCfmudzLIWKOnT6KvVnYTzg==", "title"=>"Here is a title", "description"=>"A nice description", "commit"=>"Submit Post"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (9.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Here is a title"], ["description", "A nice description"], ["created_at", "2020-05-28 18:48:30.968899"], ["updated_at", "2020-05-28 18:48:30.968899"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 749ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-05-28 11:50:10 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 179ms (Views: 126.8ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-05-28 11:50:28 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OOxBJNwRouqhpwoxUwVKYdxQo/HQzlD3XZvJ2Gc/OAIeksRLhih6O5J3/PVWcD8STZKe2R71Gizi4/xfjWSVBg==", "title"=>"A new Title", "description"=>"Another description", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (9.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "A new Title"], ["description", "Another description"], ["created_at", "2020-05-28 18:50:28.799714"], ["updated_at", "2020-05-28 18:50:28.799714"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 42ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2020-05-28 11:50:28 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 199ms (Views: 154.4ms | ActiveRecord: 0.6ms)
+
+
