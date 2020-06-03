@@ -40,3 +40,68 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (8.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "title goes here"], ["description", "desc. goes here"], ["created_at", "2020-06-03 11:25:07.600719"], ["updated_at", "2020-06-03 11:25:07.600719"]]
+  [1m[35m (16.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-06-03 06:32:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/posts" for 127.0.0.1 at 2020-06-03 06:32:47 -0500
+Processing by PostsController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (17.8ms)
+Completed 200 OK in 149ms (Views: 146.6ms | ActiveRecord: 0.0ms)
+
+
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (59.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (78.8ms)
+Completed 200 OK in 4802ms (Views: 4349.1ms | ActiveRecord: 71.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-06-03 06:33:16 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 484ms (Views: 368.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-06-03 06:33:45 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gzj/AHBa0IXjeG+wHDyRnh8tmFXLQ8hv7szCJKRHfh/tF//VtuYjBfaVo7+W9QuDfJpeUu0aEyelZMizCtDYmQ==", "title"=>"chicken and waffles", "description"=>"Ludacris is the man!", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (14.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "chicken and waffles"], ["description", "Ludacris is the man!"], ["created_at", "2020-06-03 11:33:45.472690"], ["updated_at", "2020-06-03 11:33:45.472690"]]
+  [1m[35m (21.3ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 2626ms (ActiveRecord: 35.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-06-03 06:34:18 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 457ms (Views: 344.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mPost Load (3.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/posts" for 127.0.0.1 at 2020-06-03 06:39:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (6.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eOAv4ZkE1uDi2MYmhfRzTEDmn79nBGE/VFoyoURSvS+Ozy80X7glYPc1CikPPelRI1FZuEFduncf8jg26sUbqQ==", "title"=>"Triangles", "description"=>"Triangles are one of the strongest shapes in the world.  It is used in practically every building in modern times.", "commit"=>"Submit Post"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (18.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Triangles"], ["description", "Triangles are one of the strongest shapes in the world.  It is used in practically every building in modern times."], ["created_at", "2020-06-03 11:40:02.130048"], ["updated_at", "2020-06-03 11:40:02.130048"]]
+  [1m[35m (17.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 300ms (ActiveRecord: 58.1ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2020-06-03 06:40:02 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (3.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 1528ms (Views: 1429.0ms | ActiveRecord: 3.2ms)
+
+
